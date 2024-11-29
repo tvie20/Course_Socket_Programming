@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>907</width>
-    <height>662</height>
+    <height>705</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="space" native="true">
    <property name="geometry">
@@ -407,10 +410,27 @@ border-bottom-right-radius : 10px;
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QTextEdit" name="textEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>621</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+font: 10pt &quot;Nunito Medium&quot;;
+border : 3px solid rgb(222, 233, 255);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
    <zorder>expand</zorder>
    <zorder>Symbol_column</zorder>
    <zorder>Info_column</zorder>
    <zorder>notexpand</zorder>
+   <zorder>textEdit_2</zorder>
   </widget>
  </widget>
  <resources>
