@@ -9,11 +9,14 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(907, 662)
-        self.space = QtWidgets.QWidget(parent=Form)
+class Ui_Server_page(object):
+    def setupUi(self, Server_page):
+        Server_page.setObjectName("Server_page")
+        Server_page.resize(907, 705)
+        Server_page.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
+        Server_page.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
+        Server_page.setAutoFillBackground(True)
+        self.space = QtWidgets.QWidget(parent=Server_page)
         self.space.setGeometry(QtCore.QRect(10, 10, 881, 641))
         self.space.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.space.setObjectName("space")
@@ -38,7 +41,7 @@ class Ui_Form(object):
 "}")
         self.clientsInfo_2.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/information.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/information.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.clientsInfo_2.setIcon(icon)
         self.clientsInfo_2.setCheckable(True)
         self.clientsInfo_2.setChecked(False)
@@ -60,7 +63,7 @@ class Ui_Form(object):
 "}")
         self.fileReceived_2.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:/received.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/image/received.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.fileReceived_2.setIcon(icon1)
         self.fileReceived_2.setCheckable(True)
         self.fileReceived_2.setChecked(False)
@@ -82,7 +85,7 @@ class Ui_Form(object):
 "}")
         self.Exit_2.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("D:/exit.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/image/exit.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.Exit_2.setIcon(icon2)
         self.Exit_2.setCheckable(True)
         self.Exit_2.setChecked(False)
@@ -232,17 +235,27 @@ class Ui_Form(object):
         self.expand.setIconSize(QtCore.QSize(27, 27))
         self.expand.setCheckable(True)
         self.expand.setObjectName("expand")
+        self.table_info = QtWidgets.QTableWidget(parent=self.space)
+        self.table_info.setGeometry(QtCore.QRect(220, 100, 601, 431))
+        self.table_info.setObjectName("table_info")
+        self.table_info.setColumnCount(2)
+        self.table_info.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_info.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.table_info.setHorizontalHeaderItem(1, item)
         self.expand.raise_()
         self.Symbol_column.raise_()
         self.Info_column.raise_()
         self.notexpand.raise_()
+        self.table_info.raise_()
 
-        self.retranslateUi(Form)
+        self.retranslateUi(Server_page)
         self.clientsInfo.toggled['bool'].connect(self.clientsInfo_2.setChecked) # type: ignore
         self.fileReceived.toggled['bool'].connect(self.fileReceived_2.setChecked) # type: ignore
         self.Exit.toggled['bool'].connect(self.Exit_2.setChecked) # type: ignore
-        self.Exit_2.clicked.connect(Form.close) # type: ignore
-        self.Exit.clicked.connect(Form.close) # type: ignore
+        self.Exit_2.clicked.connect(Server_page.close) # type: ignore
+        self.Exit.clicked.connect(Server_page.close) # type: ignore
         self.notexpand.toggled['bool'].connect(self.Info_column.setHidden) # type: ignore
         self.notexpand.toggled['bool'].connect(self.expand.setVisible) # type: ignore
         self.expand.toggled['bool'].connect(self.notexpand.setHidden) # type: ignore
@@ -250,23 +263,27 @@ class Ui_Form(object):
         self.expand.toggled['bool'].connect(self.expand.setHidden) # type: ignore
         self.expand.toggled['bool'].connect(self.Info_column.setVisible) # type: ignore
         self.expand.toggled['bool'].connect(self.notexpand.setVisible) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        QtCore.QMetaObject.connectSlotsByName(Server_page)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Server_page):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.fileReceived.setText(_translate("Form", "File received"))
-        self.clientsInfo.setText(_translate("Form", "Clients\' Info"))
-        self.Exit.setText(_translate("Form", "Exit"))
-        self.notexpand.setText(_translate("Form", "<"))
-        self.expand.setText(_translate("Form", ">"))
+        Server_page.setWindowTitle(_translate("Server_page", "Form"))
+        self.fileReceived.setText(_translate("Server_page", "File received"))
+        self.clientsInfo.setText(_translate("Server_page", "Clients\' Info"))
+        self.Exit.setText(_translate("Server_page", "Stop"))
+        self.notexpand.setText(_translate("Server_page", "<"))
+        self.expand.setText(_translate("Server_page", ">"))
+        item = self.table_info.horizontalHeaderItem(0)
+        item.setText(_translate("Server_page", "Client Information"))
+        item = self.table_info.horizontalHeaderItem(1)
+        item.setText(_translate("Server_page", "IP Address"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    Server_page = QtWidgets.QWidget()
+    ui = Ui_Server_page()
+    ui.setupUi(Server_page)
+    Server_page.show()
     sys.exit(app.exec())

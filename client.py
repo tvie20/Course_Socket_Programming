@@ -9,16 +9,18 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(911, 678)
-        self.space = QtWidgets.QWidget(parent=Form)
+class Ui_Client_page(object):
+    def setupUi(self, Client_page):
+        Client_page.setObjectName("Client_page")
+        Client_page.resize(911, 678)
+        Client_page.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
+        Client_page.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.space = QtWidgets.QWidget(parent=Client_page)
         self.space.setGeometry(QtCore.QRect(20, 20, 881, 641))
         self.space.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.space.setObjectName("space")
         self.menu = QtWidgets.QWidget(parent=self.space)
-        self.menu.setGeometry(QtCore.QRect(670, 450, 201, 161))
+        self.menu.setGeometry(QtCore.QRect(670, 470, 201, 161))
         self.menu.setObjectName("menu")
         self.plusMenu = QtWidgets.QPushButton(parent=self.menu)
         self.plusMenu.setGeometry(QtCore.QRect(150, 110, 41, 41))
@@ -87,7 +89,7 @@ class Ui_Form(object):
 "background-color: rgb(255, 255, 255);\n"
 "}")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/file (1).png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/file (1).png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.fileUpload.setIcon(icon)
         self.fileUpload.setCheckable(True)
         self.fileUpload.setObjectName("fileUpload")
@@ -115,7 +117,7 @@ class Ui_Form(object):
 "background-color: rgb(255, 255, 255);\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:/folder (1).png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/image/folder (1).png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.folderUpload.setIcon(icon1)
         self.folderUpload.setCheckable(True)
         self.folderUpload.setObjectName("folderUpload")
@@ -141,31 +143,31 @@ class Ui_Form(object):
 "background-color: rgb(255, 255, 255);\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("D:/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/image/D:/download.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton.setIcon(icon2)
         self.pushButton.setIconSize(QtCore.QSize(23, 23))
         self.pushButton.setObjectName("pushButton")
 
-        self.retranslateUi(Form)
+        self.retranslateUi(Client_page)
         self.plusMenu.toggled['bool'].connect(self.Menu.setHidden) # type: ignore
         self.plusMenu.toggled['bool'].connect(self.Menu.hide) # type: ignore
         self.plusMenu.toggled['bool'].connect(self.Menu.setHidden) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        QtCore.QMetaObject.connectSlotsByName(Client_page)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Client_page):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.plusMenu.setText(_translate("Form", "+"))
-        self.fileUpload.setText(_translate("Form", "File upload"))
-        self.folderUpload.setText(_translate("Form", "Folder upload"))
-        self.pushButton.setText(_translate("Form", "Download"))
+        Client_page.setWindowTitle(_translate("Client_page", "Form"))
+        self.plusMenu.setText(_translate("Client_page", "+"))
+        self.fileUpload.setText(_translate("Client_page", "File upload"))
+        self.folderUpload.setText(_translate("Client_page", "Folder upload"))
+        self.pushButton.setText(_translate("Client_page", "Download"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    Client_page = QtWidgets.QWidget()
+    ui = Ui_Client_page()
+    ui.setupUi(Client_page)
+    Client_page.show()
     sys.exit(app.exec())
