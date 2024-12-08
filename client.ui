@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>911</width>
-    <height>678</height>
+    <width>890</width>
+    <height>710</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QWidget" name="space" native="true">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>881</width>
-     <height>641</height>
+     <x>0</x>
+     <y>0</y>
+     <width>890</width>
+     <height>710</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -28,8 +28,8 @@
    <widget class="QWidget" name="menu" native="true">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>450</y>
+      <x>660</x>
+      <y>540</y>
       <width>201</width>
       <height>161</height>
      </rect>
@@ -95,11 +95,11 @@ background-color: rgb(255, 255, 255);
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QWidget" name="Menu" native="true">
+    <widget class="QWidget" name="MenuUpload" native="true">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>0</y>
+       <y>10</y>
        <width>131</width>
        <height>111</height>
       </rect>
@@ -143,8 +143,8 @@ background-color: rgb(255, 255, 255);
        <string>File upload</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/image/file (1).png</normaloff>:/image/file (1).png</iconset>
+       <iconset>
+        <normaloff>D:/file (1).png</normaloff>D:/file (1).png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -158,6 +158,15 @@ background-color: rgb(255, 255, 255);
         <width>111</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Nunito Medium</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
@@ -186,8 +195,8 @@ background-color: rgb(255, 255, 255);
        <string>Folder upload</string>
       </property>
       <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/image/folder (1).png</normaloff>:/image/folder (1).png</iconset>
+       <iconset>
+        <normaloff>D:/folder (1).png</normaloff>D:/folder (1).png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -195,10 +204,10 @@ background-color: rgb(255, 255, 255);
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="fileDownload">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>750</x>
       <y>20</y>
       <width>101</width>
       <height>21</height>
@@ -209,19 +218,21 @@ background-color: rgb(255, 255, 255);
 {
 color: rgb(0, 0, 0);
 font: 10pt &quot;Nunito Medium&quot;;
+border : 1px solid rgb(222, 233, 255);
 background-color: rgb(255, 255, 255);
-border: none;
 }
 QPushButton:hover
 {
 color: rgb(1, 24, 156);
 font: 10pt &quot;Nunito Black&quot;;
 background-color: rgb(222, 233, 255);
+border-radius: 15px;
 }
 QPushButton:pressed
 {
 color: rgb(0,0,0);
 font: 10pt &quot;Nunito Medium&quot;;
+border-radius: 15px;
 background-color: rgb(255, 255, 255);
 }</string>
     </property>
@@ -229,8 +240,9 @@ background-color: rgb(255, 255, 255);
      <string>Download</string>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
-      <normaloff>:/image/D:/download.png</normaloff>:/image/D:/download.png</iconset>
+     <iconset>
+      <normaloff>D:/download.png</normaloff>
+      <normalon>:/icon/D:/download.png</normalon>D:/download.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -242,54 +254,70 @@ background-color: rgb(255, 255, 255);
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="ServerStorage/socket/icon.qrc"/>
  </resources>
  <connections>
   <connection>
    <sender>plusMenu</sender>
    <signal>toggled(bool)</signal>
-   <receiver>Menu</receiver>
+   <receiver>MenuUpload</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>848</x>
-     <y>607</y>
+     <x>810</x>
+     <y>650</y>
     </hint>
     <hint type="destinationlabel">
-     <x>814</x>
-     <y>497</y>
+     <x>724</x>
+     <y>550</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>plusMenu</sender>
    <signal>toggled(bool)</signal>
-   <receiver>Menu</receiver>
+   <receiver>MenuUpload</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>868</x>
-     <y>613</y>
+     <x>810</x>
+     <y>650</y>
     </hint>
     <hint type="destinationlabel">
-     <x>804</x>
-     <y>496</y>
+     <x>714</x>
+     <y>550</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>plusMenu</sender>
    <signal>toggled(bool)</signal>
-   <receiver>Menu</receiver>
+   <receiver>MenuUpload</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>872</x>
-     <y>616</y>
+     <x>810</x>
+     <y>650</y>
     </hint>
     <hint type="destinationlabel">
-     <x>786</x>
-     <y>495</y>
+     <x>696</x>
+     <y>550</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>plusMenu</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MenuUpload</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>831</x>
+     <y>662</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>796</x>
+     <y>605</y>
     </hint>
    </hints>
   </connection>
